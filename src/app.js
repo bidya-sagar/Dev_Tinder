@@ -18,8 +18,14 @@ const app = express()
 //     res.send("Hello from the Server !!");
 // });
 
-app.get("/user", (req, res) => {
-  res.send({ FirstName: "Bidyasagar" , LastName: "Behera"});
+// app.get("/user", (req, res) => {
+//   console.log(req.query);
+//   res.send({ FirstName: "Bidyasagar" , LastName: "Behera"});
+// });
+
+app.get("/user/:userID/:name/:password", (req, res) => {
+  console.log(req.params);
+  res.send({ FirstName: "Bidyasagar", LastName: "Behera" });
 });
 
 app.post("/user", (req, res) => {
