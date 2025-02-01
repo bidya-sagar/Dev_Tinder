@@ -6,17 +6,37 @@ const app = express()
 //   res.send("Hello from the Dashboard !!");
 // });
 
-app.use("/hello", (req, res) => {
-  res.send("Hello Hello Hello...!!");
+// app.use("/hello", (req, res) => {
+//   res.send("Hello Hello Hello...!!");
+// });
+
+// app.use("/bidya", (req, res) => {
+//   res.send("Hello Bidya...!!");
+// });
+
+// app.use((req, res) => {
+//     res.send("Hello from the Server !!");
+// });
+
+app.get("/user", (req, res) => {
+  res.send({ FirstName: "Bidyasagar" , LastName: "Behera"});
 });
 
-app.use("/bidya", (req, res) => {
-  res.send("Hello Bidya...!!");
+app.post("/user", (req, res) => {
+  res.send("User Data POST Successfully !!!");
 });
 
-app.use((req, res) => {
-    res.send("Hello from the Server !!");
-})
+app.delete("/user", (req, res) => {
+  res.send("User Data Deleted Successfully");
+});
+
+app.put("/user", (req, res) => {
+  res.send("User Data PUT Successfully");
+});
+
+app.patch("/user", (req, res) => {
+  res.send("User Data PATCH Successfully");
+});
 
 app.listen(3000, () => {
     console.log("Server is running on port 3000");
