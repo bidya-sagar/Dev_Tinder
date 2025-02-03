@@ -23,26 +23,40 @@ const app = express()
 //   res.send({ FirstName: "Bidyasagar" , LastName: "Behera"});
 // });
 
-app.get("/user/:userID/:name/:password", (req, res) => {
-  console.log(req.params);
-  res.send({ FirstName: "Bidyasagar", LastName: "Behera" });
-});
+// app.get("/user/:userID/:name/:password", (req, res) => {
+//   console.log(req.params);
+//   res.send({ FirstName: "Bidyasagar", LastName: "Behera" });
+// });
 
-app.post("/user", (req, res) => {
-  res.send("User Data POST Successfully !!!");
-});
+// app.post("/user", (req, res) => {
+//   res.send("User Data POST Successfully !!!");
+// });
 
-app.delete("/user", (req, res) => {
-  res.send("User Data Deleted Successfully");
-});
+// app.delete("/user", (req, res) => {
+//   res.send("User Data Deleted Successfully");
+// });
 
-app.put("/user", (req, res) => {
-  res.send("User Data PUT Successfully");
-});
+// app.put("/user", (req, res) => {
+//   res.send("User Data PUT Successfully");
+// });
 
-app.patch("/user", (req, res) => {
-  res.send("User Data PATCH Successfully");
-});
+// app.patch("/user", (req, res) => {
+//   res.send("User Data PATCH Successfully");
+// });
+
+
+app.use(
+  "/user",
+  (req, res, next) => {
+    console.log("Request Handler 1");
+    // res.send("Response1");
+    next();
+  },
+  (req, res) => {
+    console.log("Request Handler 2");
+    res.send("Response2");
+    }
+);
 
 app.listen(3000, () => {
     console.log("Server is running on port 3000");
